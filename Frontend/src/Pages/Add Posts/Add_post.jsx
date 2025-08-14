@@ -17,9 +17,7 @@ function AddPost() {
 
     try {
       await axios.post("http://localhost:8000/api/posts/add", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
+        withCredentials: true,
       });
       alert("Post uploaded successfully!");
       reset();

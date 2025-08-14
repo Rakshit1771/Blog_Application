@@ -6,12 +6,12 @@
   background-color: #ffffff;
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  animation: slideInForm 0.8s ease-out;
+  animation: slideInForm 1s ease-out;
 }
 
 @keyframes slideInForm {
   from {
-    transform: translateY(30px);
+    transform: translateY(100px);
     opacity: 0;
   }
   to {
@@ -30,8 +30,8 @@
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 32px;
-  color: #1a1a1a;
-  font-family: "Poppins", sans-serif;
+  color: #007FFF;
+  font-family: "Poly", sans-serif;
 }
 
 .login-form input {

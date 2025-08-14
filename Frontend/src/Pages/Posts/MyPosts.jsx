@@ -38,7 +38,7 @@ const MyPosts = () => {
 
   return (
     <div className="my-posts-container">
-      <h2>Your Posts</h2>
+      {/* <h2>Your Posts</h2> */}
 
       {loading ? (
         <p style={{ textAlign: "center", fontSize: "18px" }}>Loading posts...</p>

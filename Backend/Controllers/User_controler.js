@@ -1,6 +1,5 @@
 import { User } from "../Models/User_Model.js";
-import { accesstoken } from "../Utils/JwtTokens.js";
-import { verifytoken } from "../Utils/Verifyjwt.js";
+
 const registerUser = async (req, res) => {
   const { username, email, password } = req.body;
   // console.log(username, email, password);
@@ -40,6 +39,7 @@ const loginUser = async (req, res) => {
     });
   }
 
+  // Find the user by email only
   const user = await User.findOne({ email });
   if (!user) {
     return res.status(404).json({
@@ -48,23 +48,21 @@ const loginUser = async (req, res) => {
     });
   }
 
-  const isPasswordValid = await user.isPasswordCorrect(password);
-
-  if(!isPasswordValid) {
-    console.log("Invalid Password");
-    
+  // Compare username from DB with frontend username
+  if (user.username !== username) {
+    return res.status(401).json({
+      success: false,
+      message: "Username does not match the registered name for this email",
+    });
   }
-const token = accesstoken(user.email)
-console.log(token,"is your token");
-console.log(verifytoken ,"isverifiedtoken");
 
-
-res.cookie("JwtToken", token, {
-  httpOnly: true,               
-  secure: true,                 
-  sameSite: "strict",          
-  maxAge: 24 * 60 * 60 * 1000,  
-});
+  const isPasswordValid = await user.isPasswordCorrect(password);
+  if (!isPasswordValid) {
+    return res.status(401).json({
+      success: false,
+      message: "Invalid password",
+    });
+  }
 
   return res.status(200).json({
     success: true,
@@ -76,5 +74,6 @@ res.cookie("JwtToken", token, {
     },
   });
 };
+
 
 export { registerUser, loginUser };

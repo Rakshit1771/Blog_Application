@@ -8,24 +8,33 @@ import AddPost from "./Pages/Add Posts/Add_post.jsx";
 import PrivateRoute from "./Private_Route.jsx";
 import MyPosts from "./Pages/Posts/MyPosts.jsx";
 import Home from "./Components/Home/Home.jsx";
-import Footer from "./Components/Footer/Footer.jsx";
+// import Footer from "./Components/Footer/Footer.jsx";
 import PostDetail from "./Pages/Post_Details/Post_Details.jsx";
 import EditPost from "./Pages/EditPost.jsx";
+import Header from "./Components/Header/Header.jsx";
+import Explore from "./Components/Explore/Explore.jsx";
+import Profile from "./Pages/Profle/Profile.jsx";
+// import { login } from "./Store/authSlice.js";
 import "./App.css";
+import { login } from "./Store/authSlice.js";
+import { useSelector } from "react-redux";
 
 function App() {
   const location = useLocation();
   const path = location.pathname;
-
-const hideCenter =
-  ["/register", "/login", "/home", "/addpost", "/mypost"].includes(path) ||
-  path.startsWith("/editpost") ||
-  path.startsWith("/post");
-
-  const hideOnDynamicRoutes =
-    path.startsWith("/mypost/") || path.startsWith("/post/");
-
-  // const hideCenter = hideCenterRoutes.includes(path) || hideOnDynamicRoutes;
+  const isLoggedIn = useSelector((state) => state.auth.status);
+  const hideCenter =
+    [
+      "/register",
+      "/login",
+      "/home",
+      "/addpost",
+      "/mypost",
+      "/explore",
+      "/profile",
+    ].includes(path) ||
+    path.startsWith("/editpost") ||
+    path.startsWith("/post");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -34,11 +43,11 @@ const hideCenter =
   return (
     <>
       <Navbar />
+      {!hideCenter && <Header />}
       {!hideCenter && <Center />}
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        {/* <Route path="/editpost/:id" element={<EditPost />} /> */}
 
         <Route
           path="/addpost"
@@ -48,7 +57,7 @@ const hideCenter =
             </PrivateRoute>
           }
         />
-        
+
         <Route
           path="/editpost/:id"
           element={
@@ -57,15 +66,7 @@ const hideCenter =
             </PrivateRoute>
           }
         />
-        
-        {/* <Route
-          path="/home"
-          element={
-            <PrivateRoute>
-              <Home />
-            </PrivateRoute>
-          } */}
-        
+
         <Route
           path="/mypost"
           element={
@@ -83,8 +84,33 @@ const hideCenter =
             </PrivateRoute>
           }
         />
+        <Route
+          path="/home"
+          element={
+            <PrivateRoute>
+              <Home />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/explore"
+          element={
+            <PrivateRoute>
+              <Explore />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <Profile />
+            </PrivateRoute>
+          }
+        />
       </Routes>
-      <Footer />
+
+      {/* <Footer />  */}
     </>
   );
 }

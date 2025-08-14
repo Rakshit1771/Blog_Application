@@ -4,10 +4,8 @@ function Footer() {
   return (
     <>
       <div className="Footer_Container">
-        Stay inspired. Stay connected.
-        <br />
-        Explore blogs,
-         share thoughts, and grow your voice. © 2025 Thought Verse
+        <p>© 2025 Thought Verse.. — Where every word finds its voice.</p>
+        <div>Follow Us On:</div>
       </div>
     </>
   );

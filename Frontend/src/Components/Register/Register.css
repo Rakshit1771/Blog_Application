@@ -1,3 +1,4 @@
+/* Base styles */
 .register-container {
   width: 100%;
   max-width: 600px;
@@ -6,13 +7,14 @@
   background-color: #ffffff;
   border-radius: 16px;
   box-shadow: 0 18px 35px rgba(0, 0, 0, 0.1);
-  animation: slideIn 0.6s ease-out;
+  animation: slideIn 1s ease-out;
   transition: all 0.3s ease-in-out;
+  box-sizing: border-box;
 }
 
 @keyframes slideIn {
   from {
-    transform: translateY(40px);
+    transform: translateY(100px);
     opacity: 0;
   }
   to {
@@ -24,10 +26,10 @@
 .register-container h2 {
   text-align: center;
   margin-bottom: 32px;
-  color: #1a1a1a;
+  color: #007FFF;
   font-size: 28px;
   font-weight: 700;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poly", sans-serif;
 }
 
 .register-form {
@@ -43,6 +45,7 @@
   border-radius: 10px;
   background-color: #fdfdfd;
   transition: border-color 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
 }
 
 .register-form input:focus {
@@ -63,11 +66,12 @@
   color: #fff;
   padding: 14px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 100;
   border: none;
   border-radius: 999px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  min-height: 48px;
 }
 
 .register-form button:hover {
@@ -116,19 +120,224 @@
   color: #333;
 }
 
+/* Tablet styles */
+@media screen and (max-width: 1024px) {
+  .register-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 40px 35px;
+  }
 
+  .register-container h2 {
+    font-size: 26px;
+    margin-bottom: 28px;
+  }
+
+  .register-form input {
+    padding: 12px 14px;
+    font-size: 15px;
+  }
+
+  .register-form button {
+    font-size: 15px;
+    padding: 12px;
+  }
+}
+
+/* Mobile landscape and small tablets */
+@media screen and (max-width: 768px) {
+  .register-container {
+    max-width: 90%;
+    margin: 40px auto;
+    padding: 35px 25px;
+  }
+
+  .register-container h2 {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  .register-form input {
+    padding: 12px 14px;
+    margin-bottom: 18px;
+    font-size: 15px;
+  }
+
+  .register-form button {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .signin-link {
+    font-size: 13px;
+    margin-top: 20px;
+  }
+}
+
+/* Mobile portrait */
 @media screen and (max-width: 640px) {
   .register-container {
     margin: 40px 16px;
     padding: 32px 20px;
+    border-radius: 12px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
   }
 
   .register-container h2 {
     font-size: 22px;
+    margin-bottom: 20px;
   }
 
   .register-form input,
   .register-form button {
     font-size: 15px;
+  }
+
+  .register-form input {
+    padding: 12px 14px;
+    margin-bottom: 16px;
+  }
+
+  .register-form button {
+    padding: 14px;
+    min-height: 44px;
+  }
+
+  .register-form .error {
+    font-size: 12px;
+    margin-top: -10px;
+    margin-bottom: 12px;
+  }
+
+  .register-error {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .signin-link {
+    margin-top: 20px;
+    font-size: 13px;
+  }
+}
+
+/* Small mobile devices */
+@media screen and (max-width: 480px) {
+  .register-container {
+    margin: 30px 12px;
+    padding: 28px 16px;
+    border-radius: 10px;
+  }
+
+  .register-container h2 {
+    font-size: 20px;
+    margin-bottom: 18px;
+  }
+
+  .register-form input {
+    padding: 11px 12px;
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  .register-form button {
+    font-size: 14px;
+    padding: 12px;
+    min-height: 42px;
+  }
+
+  .register-form .error {
+    font-size: 11px;
+  }
+
+  .register-error {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .signin-link {
+    font-size: 12px;
+    margin-top: 16px;
+  }
+}
+
+/* Large screens */
+@media screen and (min-width: 1200px) {
+  .register-container {
+    max-width: 650px;
+    margin: 80px auto;
+    padding: 60px 50px;
+  }
+
+  .register-container h2 {
+    font-size: 30px;
+    margin-bottom: 36px;
+  }
+
+  .register-form input {
+    padding: 16px 18px;
+    font-size: 17px;
+    margin-bottom: 22px;
+  }
+
+  .register-form button {
+    padding: 16px;
+    font-size: 17px;
+    min-height: 50px;
+  }
+
+  .signin-link {
+    font-size: 15px;
+    margin-top: 28px;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .register-form input {
+    min-height: 44px;
+  }
+
+  .register-form button {
+    min-height: 48px;
+    font-size: 16px;
+  }
+
+  .register-form button:hover {
+    transform: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .register-container {
+    border: 2px solid #000;
+  }
+
+  .register-form input {
+    border: 2px solid #666;
+  }
+
+  .register-form input:focus {
+    border-color: #000;
+    box-shadow: none;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .register-container {
+    animation: none;
+  }
+
+  .register-error {
+    animation: none;
+  }
+
+  .register-form button {
+    transition: background-color 0.3s ease;
+  }
+
+  .register-form button:hover {
+    transform: none;
   }
 }

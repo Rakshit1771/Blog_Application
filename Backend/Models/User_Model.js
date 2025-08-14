@@ -11,6 +11,10 @@ const userSchema = new Schema({
     required: true,
     unique: true,
   },
+  avtar: {
+    type: String,
+    default: ''
+  },
   password: {
     type: String,
     required: true,

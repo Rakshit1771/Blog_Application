@@ -1,51 +1,214 @@
-.Center_Container {
-  width: 100%;
-  max-width: 1200px;
-  height: 400px;
-  margin: 40px auto;
-  border-radius: 20px;
-  animation: slideUp 0.8s ease-out forwards;
-  opacity: 0;
-
-  background-image: url("https://plus.unsplash.com/premium_photo-1684581214880-2043e5bc8b8b?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmxvZyUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
+.center_container {
+  margin-top: 50px;
+  width: 100vw;
+  height: 500px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
-@keyframes slideUp {
-  from {
-    transform: translateY(100px);
+.center_image {
+  width: 50%;
+  height: auto;
+}
+
+.center_image img {
+  width: 80%;
+  margin-left: 10%;
+  border-radius: 50px;
+  animation: slideLeft 1.5s ease forwards;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.center_text {
+  width: 40%;
+  height: auto;
+  margin-left: 80px;
+  font-family: "Playfair Display", serif;
+  font-size: 34px;
+  font-weight: 100;
+  animation: slideRight 1.5s ease forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.centerpara {
+  font-family: "Roboto", sans-serif;
+  font-weight: 200;
+  margin-top: 10px;
+  font-size: 24px;
+}
+
+/* Animation keyframes */
+@keyframes slideLeft {
+  0% {
+    transform: translateX(+200px);
     opacity: 0;
   }
-  to {
-    transform: translateY(0);
+  100% {
+    transform: translateX(0);
     opacity: 1;
   }
 }
 
-.Center_Heading {
-  background-color: rgba(255, 255, 255, 0.7);
-  padding: 40px 20px;
-  border-radius: 16px;
-  text-align: center;
-  color: #1a202c;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+@keyframes slideRight {
+  0% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
-.Center_Heading h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  font-family: 'Poppins', sans-serif;
+/* Tablet styles */
+@media screen and (max-width: 1024px) {
+  .center_container {
+    margin-top: 40px;
+    height: 450px;
+  }
+
+  .center_text {
+    font-size: 28px;
+    margin-left: 60px;
+  }
+
+  .centerpara {
+    font-size: 20px;
+  }
+
+  .center_image img {
+    width: 85%;
+    margin-left: 7.5%;
+  }
 }
 
-.text {
-  font-size: 1.4rem;
-  font-weight: 500;
-  font-style: italic;
-  color: #2d3748;
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+  .center_container {
+    flex-direction: column;
+    height: auto;
+    margin-top: 30px;
+    padding: 0 15px;
+  }
+
+  .center_image {
+    width: 100%;
+    order: 1;
+  }
+
+  .center_image img {
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+    border-radius: 30px;
+    margin-bottom: 30px;
+  }
+
+  .center_text {
+    width: 100%;
+    margin-left: 0;
+    font-size: 24px;
+    order: 2;
+    text-align: left;
+    padding: 0 10px;
+  }
+
+  .centerpara {
+    font-size: 18px;
+    margin-top: 15px;
+  }
+}
+
+/* Small mobile styles */
+@media screen and (max-width: 480px) {
+  .center_container {
+    margin-top: 20px;
+    padding: 0 10px;
+  }
+
+  .center_text {
+    font-size: 20px;
+    padding: 0 5px;
+  }
+
+  .centerpara {
+    font-size: 16px;
+  }
+
+  .center_image img {
+    width: 95%;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Large screens */
+@media screen and (min-width: 1400px) {
+  .center_container {
+    height: 600px;
+    margin-top: 60px;
+  }
+
+  .center_text {
+    font-size: 38px;
+    margin-left: 100px;
+  }
+
+  .centerpara {
+    font-size: 26px;
+  }
+}
+
+/* Landscape orientation for tablets and small screens */
+@media screen and (max-width: 1024px) and (orientation: landscape) {
+  .center_container {
+    height: 350px;
+    margin-top: 30px;
+  }
+
+  .center_text {
+    font-size: 24px;
+    margin-left: 40px;
+  }
+
+  .centerpara {
+    font-size: 18px;
+  }
+
+  .center_image img {
+    border-radius: 25px;
+  }
+}
+
+/* Mobile landscape */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  .center_container {
+    flex-direction: row;
+    height: auto;
+    min-height: 300px;
+  }
+
+  .center_image {
+    width: 45%;
+  }
+
+  .center_text {
+    width: 50%;
+    margin-left: 20px;
+    font-size: 18px;
+  }
+
+  .centerpara {
+    font-size: 14px;
+  }
+
+  .center_image img {
+    width: 90%;
+    margin-bottom: 0;
+  }
 }

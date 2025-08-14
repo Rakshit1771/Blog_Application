@@ -25,7 +25,7 @@ function Login() {
         withCredentials: true
       }
     );
-    // console.log(loginuser);
+   
     
 
     if (loginuser.data.success === true) {
