@@ -32,7 +32,7 @@
   animation: slideRight 1.5s ease forwards;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
 }
 
 .centerpara {
